@@ -1,0 +1,21 @@
+plugins {
+    id 'java-library'
+    id 'org.owasp.dependencycheck'
+}
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    def m = new HashMap<String, String>()
+    m['group'] = 'org.apache.logging.log4j'
+    m['name'] = 'log4j-core'
+    m['version'] = '2.12.0'
+//    implementation(*:m)
+}
+
+wrapper {
+    distributionType = Wrapper.DistributionType.BIN
+    gradleVersion = getProperty('gradle.version')
+}
